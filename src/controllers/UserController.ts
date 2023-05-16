@@ -81,4 +81,9 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
 }
 
 
+// Refresh token for session
+
+
+// Logout user
+
 export default { newUser, loginUser }
