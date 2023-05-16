@@ -20,7 +20,7 @@ const createLog = async (req: Request, res: Response, next: NextFunction) => {
     const { name, priority, logtype, msg } = req.body
     console.log(name, priority, logtype, msg)
 
-    const createLog = new Logs({
+    const createNewLog = new Logs({
         _id: new mongoose.Types.ObjectId(),
         name, 
         priority, 
@@ -30,9 +30,9 @@ const createLog = async (req: Request, res: Response, next: NextFunction) => {
     })
 
     try {
-        await createLog.save().then(savedRecord => {
+        await createNewLog.save().then(savedRecord => {
             console.log(savedRecord)
-            res.status(201).json({createLog})
+            res.status(201).json({createNewLog})
         })
 
     } catch (error) {
