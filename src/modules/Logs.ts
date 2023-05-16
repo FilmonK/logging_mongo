@@ -10,7 +10,7 @@ export interface ILogs {
 
 export interface ILogs extends Document { }
 
-const LogsSchema: Schema = new Schema(
+const LogSchema: Schema = new Schema(
     {
         name: { type: String, required: true },
         priority: { type: Number, required: true},
@@ -19,9 +19,9 @@ const LogsSchema: Schema = new Schema(
         msg: { type: String, required: true}
     },
     {
-        versionKey: true
+        versionKey: false
     }
 )
 
 
-export default mongoose.model<ILogs>('Author', LogsSchema, "loginfo")
+export default mongoose.model<ILogs>('Author', LogSchema, "loginfo")

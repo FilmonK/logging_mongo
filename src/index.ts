@@ -2,7 +2,8 @@ import express from 'express';
 import http from 'http';
 import mongoose from 'mongoose';
 import { config } from './config/config';
-import Logging from './library/Logging'
+import Logging from './library/logging'
+import authorRoutes from './routes/LogRoute';
 
 const router = express()
 
@@ -47,7 +48,8 @@ const StartServer = () => {
     });
 
     // ---- Routes ---- //
-   
+   router.use('/logs', authorRoutes)
+
 
     // route to test connectivity
     router.get('/hello', (req, res, next) => {
