@@ -8,7 +8,7 @@ export interface ILogs {
     msg: String
 }
 
-export interface ILogs extends Document { }
+export interface ILogs extends Document {}
 
 const LogSchema: Schema = new Schema(
     {

@@ -17,14 +17,29 @@ const getAllLogs = async (req: Request, res: Response, next: NextFunction) => {
 
 
 const createLog = async (req: Request, res: Response, next: NextFunction) => {
-    const { type, priority, logtype, datetime, msg } = req.body
+    const { name, priority, logtype, msg } = req.body
+    console.log(name, priority, logtype, msg)
+
+    const createLog = new Logs({
+        _id: new mongoose.Types.ObjectId(),
+        name, 
+        priority, 
+        logtype, 
+        datetime: new Date(), 
+        msg
+    })
 
     try {
+        await createLog.save().then(savedRecord => {
+            console.log(savedRecord)
+            res.status(201).json({createLog})
+        })
 
     } catch (error) {
-
+        console.log(`Error attempting to create new log record: ${error}`)
+        res.status(500).json({ error })
     }
 }
 
 
-export default { getAllLogs }
+export default { getAllLogs, createLog }
