@@ -1,7 +1,7 @@
 import mongoose, { Document, Schema } from "mongoose";
 
 export interface ILogs {
-    name: String,
+    name: string,
     priority: Number,
     logtype: Number,
     datetime: Date,

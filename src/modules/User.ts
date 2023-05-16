@@ -1,9 +1,9 @@
 import mongoose, { Document, Schema } from "mongoose";
 
 export interface IUser {
-    name: String,
-    email: String,
-    password: String
+    name: string,
+    email: string,
+    password: string
 
 }
 
