@@ -5,6 +5,8 @@ const router = express.Router()
 
 router.post('/create', controller.newUser)
 router.post('/login', controller.loginUser)
+router.post('/token', controller.assignRefreshToken)
+router.post('/token', controller.logOutUser)
 
 
 export = router
